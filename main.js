@@ -4,11 +4,13 @@ import './style.css'
 // 1. Import the Agents SDK library
 import * as sdk from "@d-id/client-sdk"
 
-// 2. Paste the `data-agent-id' in the 'agentId' variable
-let agentId = "agt_yzHfQcKi"
-
-// 3. Paste the 'data-client-key' in the 'auth.clientKey' variable
-let auth = { type: 'key', clientKey: "Z29vZ2xlLW9hdXRoMnwxMDI0ODA0ODY0NDQzMzI1ODU0ODQ6UmQteWt1N29nc3dBcGFCazU4c1hO" };
+// 2. Get agent ID and client key from environment variables
+let agentId = import.meta.env.VITE_AGENT_ID || process.env.AGENT_ID || "";
+// 3. Get client key from environment variables
+let auth = { 
+  type: 'key', 
+  clientKey: import.meta.env.VITE_CLIENT_KEY || process.env.CLIENT_KEY || "" 
+};
 
 // HTML Variables declaration
 let videoElement = document.querySelector("#videoElement")
