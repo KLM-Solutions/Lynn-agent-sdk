@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "**D-ID Agents SDK Demo - Vite & Vanilla JavaScript**",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite --port 3000"
-  },
+ "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
