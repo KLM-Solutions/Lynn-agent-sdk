@@ -205,16 +205,19 @@ window.addEventListener('load', () => {
 
 // *** Finally ***
 // 6. Create the 'agentManager' instance with the values created in previous steps
-(async function() {
-  let agentManager = await sdk.createAgentManager(agentId, { auth, callbacks, streamOptions });
-  console.log("sdk.createAgentManager()", agentManager);
-  document.querySelector("#previewName").innerHTML = agentManager.agent.preview_name;
-  // Setting the thumbnail as the video background image to avoid "flickering".
-  // Set one of the following (depends on the Avatar's type): agentManager.agent.presenter.source_url / agentManager.agent.presenter.thumbnail
-  document.querySelector("#videoElement").style.backgroundImage = `url(${agentManager.agent.presenter.source_url})`;
-  // agentManager.connect() method -> Creating a new WebRTC session and connecting it to the Agent
-  console.log("agentManager.connect()");
-  agentManager.connect();
-})();
+let agentManager = await sdk.createAgentManager(agentId, { auth, callbacks, streamOptions });
+
+console.log("sdk.createAgentManager()", agentManager)
+
+// Displaying the Agent's name in the HTML Header
+document.querySelector("#previewName").innerHTML = agentManager.agent.preview_name
+
+// Setting the thumbnail as the video background image to avoid "flickering".
+// Set one of the following (depends on the Avatar's type): agentManager.agent.presenter.source_url / agentManager.agent.presenter.thumbnail
+document.querySelector("#videoElement").style.backgroundImage = `url(${agentManager.agent.presenter.source_url})`
+
+// agentManager.connect() method -> Creating a new WebRTC session and connecting it to the Agent
+console.log("agentManager.connect()")
+agentManager.connect()
 
 // Happy Coding! 
